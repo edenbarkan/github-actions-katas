@@ -16,3 +16,4 @@ jobs:
         run: |
           echo "Reusable summary (JSON): ${{ needs.call-reusable.outputs.summary }}"
           echo "Reusable summary (text): ${{ needs.call-reusable.outputs.summary_text }}"
+          
