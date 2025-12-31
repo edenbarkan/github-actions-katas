@@ -1,5 +1,11 @@
 name: Main workflow
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 env: # Set the secret as an input
   github_username: ${{ github.actor }}
   github_password: ${{ github.token }} # Token for Actions; permissions controlled above
