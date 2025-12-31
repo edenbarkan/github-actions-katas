@@ -1,8 +1,11 @@
 name: Main workflow
 on: push
+permissions:
+  contents: read
+  packages: write
 env: # Set the secret as an input
   github_username: ${{ github.actor }}
-  github_password: ${{ secrets.GITHUB_TOKEN }} # Must be made available to the workflow
+  github_password: ${{ github.token }} # Token for Actions; permissions controlled above
   GIT_COMMIT: ${{ github.sha }}
 jobs:
   Build:
@@ -51,3 +54,4 @@ jobs:
         run: bash ci/build-docker.sh
       - name: push docker
         run: bash ci/push-docker.sh
+        
